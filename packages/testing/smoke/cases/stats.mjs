@@ -215,9 +215,9 @@ export default {
     check('a click on its left half reaches the mascot and pokes it; the poke plays back to idle without waking a pass',
       mascot.reachable === true && mascot.poked === 'poke-left' && mascot.afterPoke === 'idle' && mascot.passesDuring === 0,
       JSON.stringify(mascot), 'timing')
-    // The idle still frame is the sheet's first, inside the 8-logical-pixel gutter at 0.6px a logical pixel.
+    // The idle still frame is the sheet's first; 长征姬's sheets carry no gutter, so it sits at the origin.
     check('with the animation choice on "reduced" it holds the idle still frame; a click still pokes it',
-      mascot.reducedAttr === 'reduced' && mascot.stillFrame === 'translate(-4.8px, -4.8px)' && mascot.stillAnimations === 0 &&
+      mascot.reducedAttr === 'reduced' && mascot.stillFrame === 'translate(0px, 0px)' && mascot.stillAnimations === 0 &&
         mascot.reducedClick === 'poke-left',
       JSON.stringify(mascot), 'timing')
     check('the mascot leaves with the hero page', mascot.afterHero === false, JSON.stringify(mascot))

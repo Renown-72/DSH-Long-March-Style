@@ -50,7 +50,7 @@ export default {
     check('a custom accent takes the accent tokens, with the light ink on a dark fill',
       tinted.accent === '#1a7f5a' && tinted.accentInk === '#faf9f5', JSON.stringify({ accent: tinted.accent, ink: tinted.accentInk }))
     check('an unpicked inline-code colour keeps the card\'s own ink for each scheme, so the chip stays legible on the dark canvas',
-      !!tinted.codeInk && tinted.codeInk.light === 'rgb(148, 51, 51)' && tinted.codeInk.dark === 'rgb(232, 160, 138)',
+      !!tinted.codeInk && tinted.codeInk.light === 'rgb(163, 18, 47)' && tinted.codeInk.dark === 'rgb(255, 159, 178)',
       JSON.stringify(tinted.codeInk))
     const accented = brand.accented || {}
     const accentRgb = brand.accentRgb
@@ -68,7 +68,7 @@ export default {
     commonChecks(r)
   },
   // The classic hero: the welcome is drawn on arrival and held between passes,
-  // and the crab stands on that page's card too.
+  // and the mascot stands in the window's corner on that page too.
   hero(r) {
     basicChecks(r)
     const greeting = r.greeting || {}
@@ -80,7 +80,7 @@ export default {
     check('the classic hero draws the permission segments in the card\'s mode strip',
       JSON.stringify(r.classicSegments) === JSON.stringify(['Read', 'Edit', 'Auto', 'Yolo']) && r.classicPermTrigger === false,
       JSON.stringify({ segments: r.classicSegments, trigger: r.classicPermTrigger }))
-    check('the classic hero page carries the crab too', r.classicCrab === true, JSON.stringify(r.classicCrab))
+    check('the classic hero page carries the mascot too', r.classicCrab === true, JSON.stringify(r.classicCrab))
     const ripple = r.ripple || {}
     check('the glyph field is off until its switch turns it on', ripple.off === true, JSON.stringify(ripple.off))
     check('the hero root carries the glyph field\'s canvas, under its content and taking no press',

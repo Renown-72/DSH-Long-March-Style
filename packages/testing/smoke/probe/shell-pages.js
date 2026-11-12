@@ -80,8 +80,9 @@
       r.classicSegments = heroModes === null ? null
         : Array.prototype.map.call(heroModes.querySelectorAll('.dsh-claude-segments > .dsh-claude-segment'), function (item) { return item.textContent })
       r.classicPermTrigger = heroModes !== null && heroModes.querySelector('.dsh-claude-perm-btn') !== null
-      // The crab stands on the classic home page's card too, as Deepy does.
-      r.classicCrab = document.querySelector('[data-composer-card] > .dsh-claude-changzheng') !== null
+      // The mascot stands in the window's corner on the classic home page too.
+      for (var classicWait = 0; classicWait < 60 && document.querySelector('body > .dsh-claude-mascot') === null; classicWait++) await sleep(50)
+      r.classicCrab = document.querySelector('body > .dsh-claude-mascot') !== null
       // The glyph field stands in the hero root, under its content, and takes no
       // press; its switch, off as the page opens, mounts it and takes it back off.
       r.ripple = { off: greetRoot.querySelector('.dsh-claude-ripple-canvas') === null && !greetRoot.hasAttribute('data-dsh-claude-ripple') }

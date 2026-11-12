@@ -77,8 +77,8 @@
         }
       }
       // The mascot stands in the window's corner while the hero page is up:
-      // under the crimson card without a picture of 长征姬 that is 大肥鱼,
-      // idling, drawn from her routed sheet. A click on her left half pokes
+      // under the crimson card that is 长征姬's built-in animation, idling,
+      // drawn from her routed sheet. A click on her left half pokes
       // her, and the poke plays out back to idle on the browser's animation
       // engine, so no frame wakes a pass. With the animation choice on
       // "reduced" she holds the idle sheet's still frame; a click still pokes.
@@ -94,7 +94,7 @@
         var crabHit = crab.querySelector('.dsh-claude-mascot-hit')
         r.mascot.ready = crab.hasAttribute('data-ready')
         r.mascot.animation = crab.getAttribute('data-animation')
-        r.mascot.body = /\.webp"\)$/.test(getComputedStyle(crabStrip).backgroundImage)
+        r.mascot.body = /\/assets\/[0-9a-f]+\.(png|webp)"\)$/.test(getComputedStyle(crabStrip).backgroundImage)
         // A real press has to reach the crab: nothing on the page may cover it.
         crab.scrollIntoView({ block: 'center' })
         var crabBox = crabHit.getBoundingClientRect()
